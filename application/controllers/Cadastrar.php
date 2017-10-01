@@ -21,7 +21,6 @@ class Cadastrar extends CI_Controller {
         $this->form_validation->set_rules('matricula', 'matricula', 'required|trim', array('required' => 'O campo %s nao pode ficar vazio'));
         $this->form_validation->set_rules('curso', 'curso', 'required', array('required' => 'O campo %s nao pode ficar vazio'));
         $this->form_validation->set_rules('semestre', 'semestre', 'required|trim', array('required' => 'O campo %s nao pode ficar vazio'));
-
 //regras empresa
         $this->form_validation->set_rules('nomeEmpresa', 'nomeEmpresa', 'required|trim', array('required' => 'O campo %s nao pode ficar vazio'));
         $this->form_validation->set_rules('razaoSocial', 'razaoSocial', 'required|trim', array('required' => 'O campo %s nao pode ficar vazio'));
