@@ -7,8 +7,8 @@
  */
 class Usuario_model extends CI_Model {
 
-    public function buscarUsuario($email, $senha) {
-        $this->db->where(array("email" => $email, "senha" => $senha));
+    public function consultar($email) {
+        $this->db->where(array("email" => $email));
         return $this->db->get('usuario')->result_array();
     }
     
