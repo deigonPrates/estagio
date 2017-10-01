@@ -37,60 +37,70 @@
                                     </div>
                                     <p>faça seu login.</p>
                                 </div>
+                                <?php
+                                if (isset($msg)):
+                                    ?>
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong>Os seguintes erros foram encontrados!<br><br></strong> <?php echo $msg; ?>
+                                    </div>
+
+                                    <?php
+                                endif;
+                                ?>
                             </div>
                         </div>
                         <!-- Form Panel    -->
                         <div class="col-lg-6 bg-white">
                             <div class="form d-flex align-items-center">
                                 <div class="content">
-                                        <?php
-                                        
-                                        echo "<div class='form-group'>";
-                                        echo form_open("autenticar/logar");
-                                        echo form_label('E-mail', 'email', array('class' => 'label-material'));
-                                        echo form_input(array(
-                                            'name' => 'email',
-                                            'id' => 'email',
-                                            'class' => 'input-material',
-                                        ));
-                                        echo " </div>";
+                                    <?php
+                                    echo "<div class='form-group'>";
+                                    echo form_open("autenticar/logar");
+                                    echo form_label('E-mail', 'email', array('class' => 'label-material'));
+                                    echo form_input(array(
+                                        'name' => 'email',
+                                        'id' => 'email',
+                                        'class' => 'input-material',
+                                    ));
+                                    echo " </div>";
 
-                                        echo "<div class='form-group'>";
-                                        echo form_label('Senha', 'senha', array('class' => 'label-material'));
-                                        echo form_password(array(
-                                            'name' => 'senha',
-                                            'id' => 'senha',
-                                            'class' => 'input-material',
-                                        ));
-                                        
-                                        echo " </div>";
+                                    echo "<div class='form-group'>";
+                                    echo form_label('Senha', 'senha', array('class' => 'label-material'));
+                                    echo form_password(array(
+                                        'name' => 'senha',
+                                        'id' => 'senha',
+                                        'class' => 'input-material',
+                                    ));
 
-                                        echo "<br><br>";
-                                        echo form_button(array(
-                                            "class" => "btn btn-primary",
-                                            "content" => "Entrar",
-                                            "type" => "submit",
-                                            'style' => 'width:33%',
-                                        ));
+                                    echo " </div>";
 
-                                        echo form_close();
-                                        ?>
+                                    echo "<br><br>";
+                                    echo form_button(array(
+                                        "class" => "btn btn-primary",
+                                        "content" => "Entrar",
+                                        "type" => "submit",
+                                        'style' => 'width:33%',
+                                    ));
 
-                                        <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                                    </div>
+                                    echo form_close();
+                                    ?>
+
+                                    <!-- This should be submit button but I replaced it with <a> for demo purposes-->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Javascript files-->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-            <script src="<?php echo base_url('assets/js/tether.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/js/jquery.cookie.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/js/jquery.validate.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/js/front.js'); ?>"></script>
-            
+        </div>
+        <!-- Javascript files-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="<?php echo base_url('assets/js/tether.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.cookie.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.validate.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/front.js'); ?>"></script>
+
     </body>
 </html>
