@@ -1,7 +1,6 @@
 <?php
 $title = 'inicio';
 require_once(APPPATH . '/views/header.php');
-
 ?>
 <div class="content-inner">
     <!-- Page Header-->
@@ -113,28 +112,7 @@ require_once(APPPATH . '/views/header.php');
             </div>
         </div>
     </section>
-    <footer class="main-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Internship &copy; 2017</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-</div>
-</div>
-</div>
-<!-- Javascript files-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="<?php echo base_url('assets/js/tether.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.cookie.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.validate.min.js'); ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<script src="<?php echo base_url('assets/js/charts-home.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/front.js'); ?>"></script>
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
-<!---->
-</body>
-</html>
+
+    <?php
+    require_once(APPPATH . '/views/footer.php');
+    ?>
