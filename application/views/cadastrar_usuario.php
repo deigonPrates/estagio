@@ -22,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="shortcut icon" href="<?php echo base_url('assets/img/favicon.ico'); ?>">
         <!-- Font Awesome CDN-->
         <!-- you can replace it by local Font Awesome-->
-        <script src="https://use.fontawesome.com/99347ac47f.js"></script>
+        <script src="<?php echo base_url('assets/js/fontawesome.js'); ?>"></script>
         <!-- Font Icons CSS-->
-        <link rel="stylesheet" href="https://file.myfontastic.com/da58YPMQ7U5HY8Rb6UxkNf/icons.css">
+        <link rel="stylesheet" href="<?php echo base_url('assets/css/icons.css'); ?>">
         <!-- Tweaks for older IEs--><!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -94,82 +94,93 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <h3 class="h4">Informe todos os dados para efetuar o cadastro</h3>
                                         </div>
                                         <div class="card-body">
-                                                <div class="line"></div>
-                                                <?php echo form_open("cadastrar/usuario"); ?>
-                                                <div class="row">
-                                                    <label class="col-sm-2 form-control-label">Dados do usuario</label>
-                                                    <div class="col-sm-9">
-                                                        <div class="form-group-material">
-                                                            <?php
-                                                            echo form_input(array(
-                                                                'name' => 'nome',
-                                                                'id' => 'nome',
-                                                                'class' => 'input-material',
-                                                            ));
-                                                            echo form_label('Nome', 'nome', array('class' => 'label-material'));
-                                                            ?>
-                                                        </div>
-                                                        <div class="form-group-material">
-                                                            <?php
-                                                            echo form_input(array(
-                                                                'name' => 'username',
-                                                                'id' => 'username',
-                                                                'class' => 'input-material',
-                                                            ));
-                                                            echo form_label('Username', 'username', array('class' => 'label-material'));
-                                                            ?>
-                                                        </div>
-                                                        <div class="form-group-material">
-                                                            <?php
-                                                            echo form_password(array(
-                                                                'name' => 'senha',
-                                                                'id' => 'senha',
-                                                                'class' => 'input-material',
-                                                            ));
-                                                            echo form_label('Senha', 'senha', array('class' => 'label-material'));
-                                                            ?>
-                                                        </div>
-                                                        <div class="form-group-material">
-                                                            <?php
-                                                            echo form_input(array(
-                                                                'name' => 'email',
-                                                                'id' => 'email',
-                                                                'class' => 'input-material',
-                                                            ));
-                                                            echo form_label('E-mail', 'email', array('class' => 'label-material'));
-                                                            ?>
-                                                        </div>
-                                                        <div class="form-group-material">
-                                                            <?php
-                                                            echo form_input(array(
-                                                                'name' => 'funcao',
-                                                                'id' => 'funcao',
-                                                                'class' => 'input-material',
-                                                            ));
-                                                            echo form_label('Funcao', 'funcao', array('class' => 'label-material'));
-                                                            ?>
-                                                        </div>
-                                                    </div>
+                                            <?php
+                                            if (isset($msg)):
+                                                ?>
+                                                <div class="alert alert-danger alert-dismissable">
+                                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                    <strong>Os seguintes erros foram encontrados!<br><br></strong> <?php echo $msg; ?>
                                                 </div>
-                                                <div class = "line"></div>
-                                                
-                                                <div class = "form-group row">
-                                                    <div class = "col-sm-5 offset-sm-4">
+
+                                                <?php
+                                            endif;
+                                            ?>
+                                            <div class="line"></div>
+                                            <?php echo form_open("cadastrar/usuario"); ?>
+                                            <div class="row">
+                                                <label class="col-sm-2 form-control-label">Dados do usuario</label>
+                                                <div class="col-sm-9">
+                                                    <div class="form-group-material">
                                                         <?php
-                                                        echo anchor('redireciona/pagina/inicio', "Cancelar", array('class'=>'btn btn-secondary'));
-                                                        echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                                                        echo form_button(array(
-                                                            "class" => "btn btn-primary",
-                                                            "content" => "Cadastrar",
-                                                            "type" => "submit",
-                                                            'style' => 'width:33%',
+                                                        echo form_input(array(
+                                                            'name' => 'nome',
+                                                            'id' => 'nome',
+                                                            'class' => 'input-material',
                                                         ));
+                                                        echo form_label('Nome', 'nome', array('class' => 'label-material'));
+                                                        ?>
+                                                    </div>
+                                                    <div class="form-group-material">
+                                                        <?php
+                                                        echo form_input(array(
+                                                            'name' => 'username',
+                                                            'id' => 'username',
+                                                            'class' => 'input-material',
+                                                        ));
+                                                        echo form_label('Username', 'username', array('class' => 'label-material'));
+                                                        ?>
+                                                    </div>
+                                                    <div class="form-group-material">
+                                                        <?php
+                                                        echo form_password(array(
+                                                            'name' => 'senha',
+                                                            'id' => 'senha',
+                                                            'class' => 'input-material',
+                                                        ));
+                                                        echo form_label('Senha', 'senha', array('class' => 'label-material'));
+                                                        ?>
+                                                    </div>
+                                                    <div class="form-group-material">
+                                                        <?php
+                                                        echo form_input(array(
+                                                            'name' => 'email',
+                                                            'id' => 'email',
+                                                            'class' => 'input-material',
+                                                        ));
+                                                        echo form_label('E-mail', 'email', array('class' => 'label-material'));
+                                                        ?>
+                                                    </div>
+                                                    <div class="form-group-material">
+                                                        <?php
+                                                        echo form_input(array(
+                                                            'name' => 'funcao',
+                                                            'id' => 'funcao',
+                                                            'class' => 'input-material',
+                                                        ));
+                                                        echo form_label('Funcao', 'funcao', array('class' => 'label-material'));
                                                         ?>
                                                     </div>
                                                 </div>
-                                                <?php
-                                                echo form_close();
-                                                ?>
+                                            </div>
+                                            <div class = "line"></div>
+
+                                            <div class = "form-group row">
+                                                <div class = "col-sm-5 offset-sm-4">
+                                                    <?php
+                                                    echo anchor('redireciona/pagina/inicio', "Cancelar", array('class' => 'btn btn-secondary'));
+                                                    echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                                                    echo form_button(array(
+                                                        "class" => "btn btn-primary",
+                                                        "content" => "Cadastrar",
+                                                        "type" => "submit",
+                                                        'style' => 'width:33%',
+                                                    ));
+                                                    ?>
+                                                </div>
+                                            </div>
+                                            <?php
+                                            echo form_close();
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -191,11 +202,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
         <!-- Javascript files-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="<?php echo base_url('assets/js/tether.min.js');?>"></script>
-        <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-        <script src="<?php echo base_url('assets/js/jquery.cookie.js');?>"></script>
-        <script src="<?php echo base_url('assets/js/jquery.validate.min.js');?>"></script>
-        <script src="<?php echo base_url('assets/js/front.js');?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/tether.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.cookie.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.validate.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/front.js'); ?>"></script>
     </body>
 </html>

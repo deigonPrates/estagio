@@ -78,17 +78,16 @@ class Cadastrar extends CI_Controller {
             if ($this->form_validation->run() == FALSE) {
 
                 $erros = validation_errors();
-                echo "<pre>";
-                print_r($erros);
-                echo "<pre>";
-                exit();
+                $mensagem = array('msg' => $erros);
+                $this->load->view('cadastrar_usuario', $mensagem);
+                
             } else {
 
-               $criptografia = $this->criptografia->hashHX($this->input->post('senha'));
-               
-               $senha = $criptografia['password'];
-               $salt = $criptografia['salt'];
-               
+                $criptografia = $this->criptografia->hashHX($this->input->post('senha'));
+
+                $senha = $criptografia['password'];
+                $salt = $criptografia['salt'];
+
                 $dados = array(
                     'nome' => $this->input->post('nome'),
                     'username' => $this->input->post('username'),
@@ -101,10 +100,12 @@ class Cadastrar extends CI_Controller {
 
                 $this->load->model('usuario_model');
                 $this->usuario_model->cadastrar($dados);
-            }
-        }
 
-        $this->load->view('cadastrar_usuario');
+                $this->load->view('cadastrar_usuario');
+            }
+        } else {
+            $this->load->view('cadastrar_usuario');
+        }
     }
 
 }
