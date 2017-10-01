@@ -84,20 +84,20 @@ class Cadastrar extends CI_Controller {
                 exit();
             } else {
 
-               // $criptografia = ();
-
+               $criptografia = $this->criptografia->hashHX($this->input->post('senha'));
+               
+               $senha = $criptografia['password'];
+               $salt = $criptografia['salt'];
+               
                 $dados = array(
                     'nome' => $this->input->post('nome'),
                     'username' => $this->input->post('username'),
                     'senha' => $senha,
+                    'salt' => $salt,
                     'email' => $this->input->post('email'),
                     'funcao' => $this->input->post('funcao'),
                     'status' => 1,
                 );
-                echo "<pre>";
-                print_r($dados);
-                echo "<pre>";
-                exit();
 
                 $this->load->model('usuario_model');
                 $this->usuario_model->cadastrar($dados);
