@@ -59,7 +59,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'nome',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Nome', 'nome', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['nomeAluno'], 'nome', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -69,7 +69,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'matricula',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Matricula', 'matricula', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['matriculaAluno'], 'matricula', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -79,7 +79,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'curso',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Curso', 'curso', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['cursoAluno'], 'curso', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -89,7 +89,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'semestre',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Semestre', 'semestre', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['semestreAluno'], 'semestre', array('class' => 'label-material'));
                                         ?>
                                     </div>
 
@@ -172,7 +172,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'dataIncio',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Data Incio', 'dataIncio', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['dataIncio'], 'dataIncio', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -182,7 +182,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'dataTermino',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Data Termino', 'Data Termino', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['dataTermino'], 'Data Termino', array('class' => 'label-material'));
                                         ?>
                                     </div>
 
@@ -199,7 +199,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'cartaAceite',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Carta de Aceite', 'cartaAceite', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['cartaAceite'], 'cartaAceite', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -209,7 +209,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'formularioRequimento',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Formulario Requimento', 'formularioRequimento', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['formularioRequimento'], 'formularioRequimento', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -219,7 +219,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'termoCompromisso',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Termo Compromisso', 'termoCompromisso', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['termoCompromisso'], 'termoCompromisso', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -229,7 +229,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'comprovanteMatricula',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Comprovante de Matricula', 'comprovanteMatricula', array('class' => 'label-material'));
+                                        echo form_label($estagio[0]['comprovanteMatricula'], 'comprovanteMatricula', array('class' => 'label-material'));
                                         ?>
                                     </div>
 

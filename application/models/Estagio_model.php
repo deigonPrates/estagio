@@ -11,13 +11,19 @@
  *
  * @author deigon
  */
-class Estagio_model extends CI_Model{
-     public function cadastrar($dados) {
+class Estagio_model extends CI_Model {
+
+    public function cadastrar($dados) {
         $this->db->insert('estagio', $dados);
     }
-    
+
     public function buscaCompleta() {
         return $this->db->get('estagio')->result_array();
     }
-    
+
+    public function buscaEspecifica($id) {
+        $this->db->where('idestagio', $id);
+        return $this->db->get('estagio')->result_array();
+    }
+
 }
