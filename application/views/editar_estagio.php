@@ -106,7 +106,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'nomeEmpresa',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Nome', 'nome', array('class' => 'label-material'));
+                                        echo form_label($empresa[0]['nome'], 'nome', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -116,7 +116,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'razaoSocial',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Razao Social', 'razaoSocial', array('class' => 'label-material'));
+                                        echo form_label($empresa[0]['razaoSocial'], 'razaoSocial', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -126,7 +126,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'endereco',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Endereco', 'endereco', array('class' => 'label-material'));
+                                        echo form_label($empresa[0]['endereco'], 'endereco', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -136,7 +136,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'bairro',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Bairro', 'bairro', array('class' => 'label-material'));
+                                        echo form_label($empresa[0]['bairro'], 'bairro', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -146,7 +146,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'cidade',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('cidade', 'cidade', array('class' => 'label-material'));
+                                        echo form_label($empresa[0]['cidade'], 'cidade', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -156,7 +156,7 @@ require_once(APPPATH . '/views/header.php');
                                             'id' => 'cep',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('CEP', 'cep', array('class' => 'label-material'));
+                                        echo form_label($empresa[0]['cep'], 'cep', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                 </div>
