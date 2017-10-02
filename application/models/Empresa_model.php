@@ -11,6 +11,19 @@
  *
  * @author deigon
  */
-class Empresa_model {
-    //put your code here
+class Empresa_model extends CI_Model{
+
+    public function cadastrar($dados) {
+        $this->db->insert('empresa', $dados);
+        return $this->retornarID();
+    }
+    
+    private function retornarID(){
+        $this->db->select("idempresa");
+        $this->db->order_by("idempresa", "desc"); 
+        $this->db->limit(1);
+        
+        return $this->db->get('empresa')->result_array();
+    }
+
 }
