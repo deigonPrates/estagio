@@ -244,7 +244,7 @@ require_once(APPPATH . '/views/header.php');
                                     echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                                     echo form_button(array(
                                         "class" => "btn btn-primary",
-                                        "content" => "Cadastrar",
+                                        "content" => "Atualizar",
                                         "type" => "submit",
                                         'style' => 'width:33%',
                                     ));
