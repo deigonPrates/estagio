@@ -41,13 +41,19 @@ class Autenticar extends CI_Controller {
 
             $bd_senha = $usuarios[0]['senha'];
             $bd_salt = $usuarios[0]['salt'];
+            if ($usuarios[0]['status'] == 1) {
 
-            $descriptografia = $this->criptografia->hashHX($senha, $bd_salt);
-            if ($descriptografia['password'] === $bd_senha) {
-                $this->session->set_userdata("logado", $usuarios);
-                $this->load->view("inicio");
+                $descriptografia = $this->criptografia->hashHX($senha, $bd_salt);
+                if ($descriptografia['password'] === $bd_senha) {
+                    $this->session->set_userdata("logado", $usuarios);
+                    $this->load->view("inicio");
+                } else {
+                    $erro = array('msg' => 'Email ou senha invalido!');
+                    $this->load->helper('form');
+                    $this->load->view('login', $erro);
+                }
             } else {
-                $erro = array('msg' => 'Email ou senha invalido!');
+                $erro = array('msg' => 'Usuario bloqueado! <br>Contate o adiministrador.');
                 $this->load->helper('form');
                 $this->load->view('login', $erro);
             }
