@@ -23,7 +23,7 @@ require_once(APPPATH . '/views/header.php');
                             </div>
                         </div>
                         <div class="card-header d-flex align-items-center">
-                            <h3 class="h4">Informe todos os dados para efetuar o cadastro</h3>
+                            <h3 class="h4">Informe todos os dados para efetuar a ediçao</h3>
                         </div>
                         <div class = "card-body">
                             <?php
