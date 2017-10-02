@@ -24,13 +24,33 @@ class Usuario_model extends CI_Model {
         $this->db->where(array("idusuario" => $id));
         $this->db->set('status', 0);
         $this->db->update('usuario');
-        
     }
+
     public function desbloquear($id) {
         $this->db->where(array("idusuario" => $id));
         $this->db->set('status', 1);
         $this->db->update('usuario');
+    }
+
+    public function atualizar($dados, $id, $senha) {
+        $this->db->where(array("idusuario" => $id));
+        $this->db->set('nome', $dados['nome']);
+        $this->db->set('username', $dados['username']);
+        if ($senha) {
+            $this->db->set('senha', $dados['senha']);
+            $this->db->set('salt', $dados['salt']);
+        }
+        $this->db->set('email', $dados['email']);
+        $this->db->set('funcao', $dados['funcao']);
+        $this->db->update('usuario');
         
+        if ($this->db->trans_status() === true) {
+            $this->db->trans_commit();
+            return true;
+        } else {
+            $this->db->trans_rollback();
+            return false;
+        }
     }
 
 }

@@ -88,6 +88,6 @@ if (!defined('BASEPATH'))
                                 <li><?php echo anchor('listar/usuario', "Listar"); ?></li>
                             </ul>
                         </li>   
-                        <li><?php echo anchor('redireciona/pagina/editar_perfil', "<i class='icon-interface-windows'> </i> Editar Perfil"); ?></li>
+                        <li><?php echo anchor('editar/usuario', "<i class='icon-interface-windows'> </i> Editar Perfil"); ?></li>
                     </ul>   
                 </nav>
