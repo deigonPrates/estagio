@@ -11,7 +11,7 @@ require_once(APPPATH . '/views/header.php');
     <ul class="breadcrumb">
         <div class="container-fluid">
             <li class="breadcrumb-item"><?php echo anchor('redireciona/pagina/inicio', 'Inicio'); ?></li>
-            <li class="breadcrumb-item active">Cadastrar Estagio</li>
+            <li class="breadcrumb-item active">Listar Estagio</li>
         </div>
     </ul>
     <!-- Forms Section-->
