@@ -49,12 +49,12 @@ class Editar extends CI_Controller {
                 $salt = $criptografia['salt'];
 
                 $dados = array(
-                    'nome' => $this->input->post('nome'),
-                    'username' => $this->input->post('username'),
+                    'nome' => $this->input->post('nome', TRUE),
+                    'username' => $this->input->post('username', TRUE),
                     'senha' => $senha,
                     'salt' => $salt,
-                    'email' => $this->input->post('email'),
-                    'funcao' => $this->input->post('funcao'),
+                    'email' => $this->input->post('email', TRUE),
+                    'funcao' => $this->input->post('funcao', TRUE),
                     'status' => 1,
                 );
 
@@ -62,10 +62,10 @@ class Editar extends CI_Controller {
                 $result = $this->usuario_model->atualizar($dados, $id, TRUE);
             } else {
                 $dados = array(
-                    'nome' => $this->input->post('nome'),
-                    'username' => $this->input->post('username'),
-                    'email' => $this->input->post('email'),
-                    'funcao' => $this->input->post('funcao'),
+                    'nome' => $this->input->post('nome', TRUE),
+                    'username' => $this->input->post('username', TRUE),
+                    'email' => $this->input->post('email', TRUE),
+                    'funcao' => $this->input->post('funcao', TRUE),
                     'status' => 1,
                 );
 
