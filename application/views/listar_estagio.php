@@ -97,7 +97,7 @@ endforeach;
                             </div>
                         </div>
                         <div class="card-header d-flex align-items-center">
-                            <h3 class="h4">Usuarios cadastrados no sistema</h3>
+                            <h3 class="h4">Estagios cadastrados no sistema</h3>
                         </div>
                         <div class="card-body">
                             <div class="container">
