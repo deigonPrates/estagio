@@ -18,7 +18,7 @@ $(document).ready(function() {
   });
 
   var jobCount = $('.results tbody tr[visible="true"]').length;
-    $('.counter').text(jobCount + ' item');
+    $('.counter').text(jobCount + ' itens');
 
   if(jobCount == '0') {$('.no-result').show();}
     else {$('.no-result').hide();}

@@ -33,7 +33,7 @@ require_once(APPPATH . '/views/header.php');
                             <div class="container">
                                 <div class="row">
                                     <div class="form-group pull-right">
-                                        <input type="text" class="search form-control" placeholder="What you looking for?">
+                                        <input type="text" class="search form-control" placeholder="Pesquisar">
                                     </div>
                                     <span class="counter pull-right"></span>
                                     <table class="table table-hover table-bordered results">
@@ -42,7 +42,7 @@ require_once(APPPATH . '/views/header.php');
                                                 <th>#</th>
                                                 <th class="col-md-2 col-xs-2" style="width: 30%;">Name</th>
                                                 <th class="col-md-2 col-xs-2" style="width: 20%;">Username</th>
-                                                <th class="col-md-3 col-xs-3" style="width: 30%;">Email</th>
+                                                <th class="col-md-3 col-xs-3" style="width: 30%;">Funçao</th>
                                                 <th class="col-md-4 col-xs-4">Açao</th>
                                             </tr>
                                             <tr class="warning no-result">
@@ -50,34 +50,24 @@ require_once(APPPATH . '/views/header.php');
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Vatanay Özbeyli</td>
-                                                <td>UI & UX</td>
-                                                <td>UI & UX</td>
-                                                <td>Istanbul</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Burak Özkan</td>
-                                                <td>Burak Özkan</td>
-                                                <td>Software Developer</td>
-                                                <td>Istanbul</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Egemen Özbeyli</td>
-                                                <td>Egemen Özbeyli</td>
-                                                <td>Purchasing</td>
-                                                <td>Kocaeli</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>Engin Kızıl</td>
-                                                <td>Engin Kızıl</td>
-                                                <td>Sales</td>
-                                                <td>Bozuyük</td>
-                                            </tr>
+                                            <?php
+                                            $cont = 1;
+                                            foreach ($usuarios as $key => $value) {
+                                                $id = $value['idusuario'];
+                                                echo '<tr>';
+                                                echo "<th scope='row'>$cont</th>";
+                                                echo ' <td>' . $value['nome'] . ' </td>';
+                                                echo ' <td>' . $value['username'] . ' </td>';
+                                                echo ' <td>' . $value['funcao'] . ' </td>';
+                                                if ($value['status'] == 1):
+                                                    echo ' <td>' . anchor('listar/bloquearUsuario/' . $id, 'Bloquear', array('class' => 'btn btn-danger')) . ' </td>';
+                                                else:
+                                                    echo ' <td>' . anchor('listar/desbloquearUsuario/' . $id, 'Desbloquear', array('class' => 'btn btn-success')) . ' </td>';
+                                                endif;
+                                                echo '</tr>';
+                                                $cont++;
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
