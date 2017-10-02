@@ -71,6 +71,7 @@ require_once(APPPATH . '/views/header.php');
                                         echo form_label('Semestre', 'semestre', array('class' => 'label-material'));
                                         ?>
                                     </div>
+                                    
                                 </div>
                             </div>
                             <div class = "line"></div>
@@ -203,11 +204,11 @@ require_once(APPPATH . '/views/header.php');
                                     <div class="form-group-material">
                                         <?php
                                         echo form_input(array(
-                                            'name' => 'comprovanteMatricula	',
-                                            'id' => 'comprovanteMatricula	',
+                                            'name' => 'comprovanteMatricula',
+                                            'id' => 'comprovanteMatricula',
                                             'class' => 'input-material',
                                         ));
-                                        echo form_label('Comprovante de Matricula	', 'comprovanteMatricula', array('class' => 'label-material'));
+                                        echo form_label('Comprovante de Matricula', 'comprovanteMatricula', array('class' => 'label-material'));
                                         ?>
                                     </div>
 
