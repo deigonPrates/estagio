@@ -25,5 +25,10 @@ class Empresa_model extends CI_Model{
         
         return $this->db->get('empresa')->result_array();
     }
+    
+    public function buscaEspecifica($id) {
+        $this->db->where('idempresa', $id);
+        return $this->db->get('empresa')->result_array();
+    }
 
 }
