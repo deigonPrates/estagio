@@ -19,7 +19,11 @@
 <script src="<?php echo base_url('assets/js/jquery.cookie.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.validate.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/front.js'); ?>"></script>
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<!---->
+ <!-- js custom-->
+        <?php
+            if(isset($js)){
+                echo $js;
+            }
+        ?>
 </body>
 </html>

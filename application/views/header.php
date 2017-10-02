@@ -19,6 +19,14 @@ if (!defined('BASEPATH'))
         <link rel="stylesheet" href="<?php echo base_url('assets/css/style.default.css'); ?>" id="theme-stylesheet">
         <!-- Custom stylesheet - for your changes-->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.css'); ?>">
+       
+        <!-- css custom-->
+        <?php
+            if(isset($css)){
+                echo $css;
+            }
+        ?>
+        
         <!-- Favicon-->
         <link rel="shortcut icon" href="<?php echo base_url('assets/img/favicon.ico'); ?>">
         <!-- Font Awesome CDN-->
@@ -71,15 +79,13 @@ if (!defined('BASEPATH'))
                         <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="icon-padnote"></i>Estagio</a>
                             <ul id="dashvariants" class="collapse list-unstyled">
                                 <li><?php echo anchor('cadastrar/estagio', "Cadastar"); ?></li>
-                                <li><a href="#">Editar</a></li>
-                                <li><a href="#">Visualizar</a></li>
+                                <li><?php echo anchor('listar/estagio', "Listar"); ?></li>
                             </ul>
                         </li>
                         <li><a href="#fdfdfd" aria-expanded="false" data-toggle="collapse"> <i class="icon-user"></i>Usuario</a>
                             <ul id="fdfdfd" class="collapse list-unstyled">
                                 <li><?php echo anchor('cadastrar/usuario', "Cadastrar"); ?></li>
-                                <li><a href="#">Editar</a></li>
-                                <li><a href="#">Visualizar</a></li>
+                                <li><?php echo anchor('listar/usuario', "Listar"); ?></li>
                             </ul>
                         </li>   
                         <li><?php echo anchor('redireciona/pagina/editar_perfil', "<i class='icon-interface-windows'> </i> Editar Perfil"); ?></li>
