@@ -25,9 +25,30 @@ require_once(APPPATH . '/views/header.php');
                         <div class="card-header d-flex align-items-center">
                             <h3 class="h4">Informe todos os dados para efetuar o cadastro</h3>
                         </div>
-                        <div class="card-body">
-                            <div class="line"></div>
-                            <?php echo form_open("/cadastrar/estagio/"); ?>
+                        <div class = "card-body">
+                            <?php
+                            if (isset($msg)):
+                                ?>
+                                <div class="alert alert-danger alert-dismissable">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Os seguintes erros foram encontrados!<br><br></strong> <?php echo $msg; ?>
+                                </div>
+
+                                <?php
+                            endif;
+                            if (isset($success)):
+                                ?>
+                                <div class="alert alert-success alert-dismissable">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>(:<br><br></strong> <?php echo $success; ?>
+                                </div>
+
+                                <?php
+                            endif;
+                            ?>
+                            <div class = "line"></div>
+                            <?php echo form_open("/cadastrar/estagio/");
+                            ?>
                             <div class="row">
                                 <label class="col-sm-2 form-control-label">Dados do aluno</label>
                                 <div class="col-sm-9">
@@ -71,7 +92,7 @@ require_once(APPPATH . '/views/header.php');
                                         echo form_label('Semestre', 'semestre', array('class' => 'label-material'));
                                         ?>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class = "line"></div>

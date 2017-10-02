@@ -46,8 +46,9 @@ class Cadastrar extends CI_Controller {
 //			
 
                 $erros = validation_errors();
-                var_dump($erros);
-                exit();
+                $mensagem = array('msg' => $erros);
+                $this->load->view('cadastrar_estagio', $mensagem);
+                ;
             } else {
                 $empresa = array(
                     'nome' => $this->input->post('nomeEmpresa', TRUE),
@@ -81,8 +82,8 @@ class Cadastrar extends CI_Controller {
                 $idempresa = $this->estagio_model->cadastrar($dados);
             }
         }
-
-        $this->load->view('cadastrar_estagio');
+        $mensagem = array('success' => 'Dados atualizados, deslogue e logue novamente para carregar-lo');
+        $this->load->view('cadastrar_estagio', $mensagem);
     }
 
     public function usuario() {
