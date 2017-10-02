@@ -6,7 +6,77 @@ $css = "<link rel='stylesheet' href='$link'>";
 
 require_once(APPPATH . '/views/header.php');
 ?>
+<!-- Modal -->
+<style>
+    .DemoModal2{margin:50px;}
+</style>
+<?php
+foreach ($estagio as $key => $value):
+    $id = $value['idestagio'];
+    ?>
+    <!-- Modal Contents -->
+    <div id="<?php echo 'DemoModal' . $id; ?>" class="modal fade " style="margin:50px"> <!-- class modal and fade -->
 
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header"> <!-- modal header -->
+                    <button type="button" class="close" 
+                            data-dismiss="modal" aria-hidden="true">×</button>
+
+                    <h4 class="modal-title">Detalhes do aluno</h4>
+                </div>
+
+                <div class="modal-body"> <!-- modal body -->
+                    <table class="table table-hover table-bordered results">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th class="col-md-2 col-xs-2" style="width: 10%;">Name</th>
+                                <th class="col-md-2 col-xs-2" style="width: 10%;">Matricula</th>
+                                <th class="col-md-3 col-xs-3" style="width: 10%;">Semestre</th>
+                                <th class="col-md-3 col-xs-3" style="width: 10%;">Inicio</th>
+                                <th class="col-md-3 col-xs-3" style="width: 10%;">Termino</th>
+                                <th class="col-md-3 col-xs-3" style="width: 10%;">Curso</th>
+                            </tr>
+                            <tr class="warning no-result">
+                                <td colspan="4"><i class="fa fa-warning"></i> Nada encontrado!!</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $cont = 1;
+                            foreach ($estagio as $key => $value) {
+                                if ($value['idestagio'] == $id):
+                                    echo '<tr>';
+                                    echo "<th scope='row' style='width:5%;'>$cont</th>";
+                                    echo ' <td>' . $value['nomeAluno'] . ' </td>';
+                                    echo ' <td>' . $value['matriculaAluno'] . ' </td>';
+                                    echo ' <td>' . $value['semestreAluno'] . ' </td>';
+                                    echo ' <td>' . $value['dataIncio'] . ' </td>';
+                                    echo ' <td>' . $value['dataTermino'] . ' </td>';
+                                    echo ' <td>' . $value['cursoAluno'] . ' </td>';
+                                    echo '</tr>';
+                                    $cont++;
+                                endif;
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="modal-footer"> <!-- modal footer -->
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+
+            </div> <!-- / .modal-content -->
+
+        </div> <!-- / .modal-dialog -->
+
+    </div><!-- / .modal -->
+    <?php
+endforeach;
+?>
 <div class="content-inner">
     <ul class="breadcrumb">
         <div class="container-fluid">
@@ -59,7 +129,7 @@ require_once(APPPATH . '/views/header.php');
                                                 echo ' <td>' . $value['nomeAluno'] . ' </td>';
                                                 echo ' <td>' . $value['matriculaAluno'] . ' </td>';
                                                 echo ' <td>' . $value['semestreAluno'] . ' </td>';
-                                                echo ' <td>' . anchor('listar/completo/' . $id, 'Visualizar', array('class' => 'btn btn-primary')) . ' </td>';
+                                                echo ' <td>' . "<button type='button' class='btn btn-primary btn-lg' data-toggle='modal' data-target='#DemoModal$id'>Visualizar</button>" . ' </td>';
                                                 echo '</tr>';
                                                 $cont++;
                                             }
