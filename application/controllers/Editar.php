@@ -82,4 +82,13 @@ class Editar extends CI_Controller {
         }
     }
 
+    public function estagio() {
+        $this->load->model('estagio_model');
+        $dados = array('estagio' => $this->estagio_model->buscaCompleta());
+        $this->load->view('definir_estagio', $dados);
+    }
+    public function estagioCheck($id) {
+        
+    }
+
 }
