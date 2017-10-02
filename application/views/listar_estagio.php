@@ -41,9 +41,9 @@ require_once(APPPATH . '/views/header.php');
                                             <tr>
                                                 <th>#</th>
                                                 <th class="col-md-2 col-xs-2" style="width: 30%;">Name</th>
-                                                <th class="col-md-2 col-xs-2" style="width: 20%;">Username</th>
-                                                <th class="col-md-3 col-xs-3" style="width: 30%;">Funçao</th>
-                                                <th class="col-md-4 col-xs-4">Açao</th>
+                                                <th class="col-md-2 col-xs-2" style="width: 20%;">Matricula</th>
+                                                <th class="col-md-3 col-xs-3" style="width: 30%;">Semestre</th>
+                                                <th class="col-md-4 col-xs-4">Detalhes</th>
                                             </tr>
                                             <tr class="warning no-result">
                                                 <td colspan="4"><i class="fa fa-warning"></i> Nada encontrado!!</td>
@@ -52,18 +52,14 @@ require_once(APPPATH . '/views/header.php');
                                         <tbody>
                                             <?php
                                             $cont = 1;
-                                            foreach ($usuarios as $key => $value) {
-                                                $id = $value['idusuario'];
+                                            foreach ($estagio as $key => $value) {
+                                                $id = $value['idestagio'];
                                                 echo '<tr>';
                                                 echo "<th scope='row'>$cont</th>";
-                                                echo ' <td>' . $value['nome'] . ' </td>';
-                                                echo ' <td>' . $value['username'] . ' </td>';
-                                                echo ' <td>' . $value['funcao'] . ' </td>';
-                                                if ($value['status'] == 1):
-                                                    echo ' <td>' . anchor('listar/bloquearUsuario/' . $id, 'Bloquear', array('class' => 'btn btn-danger')) . ' </td>';
-                                                else:
-                                                    echo ' <td>' . anchor('listar/desbloquearUsuario/' . $id, 'Desbloquear', array('class' => 'btn btn-success')) . ' </td>';
-                                                endif;
+                                                echo ' <td>' . $value['nomeAluno'] . ' </td>';
+                                                echo ' <td>' . $value['matriculaAluno'] . ' </td>';
+                                                echo ' <td>' . $value['semestreAluno'] . ' </td>';
+                                                echo ' <td>' . anchor('listar/completo/' . $id, 'Visualizar', array('class' => 'btn btn-primary')) . ' </td>';
                                                 echo '</tr>';
                                                 $cont++;
                                             }

@@ -35,9 +35,11 @@ class Listar extends CI_Controller {
         $this->usuario_model->desbloquear($id);
         $this->usuario();
     }
-    
+
     public function estagio() {
-        $this->load->view('listar_estagio');
+        $this->load->model('estagio_model');
+        $dados = array('estagio' => $this->estagio_model->buscaCompleta());
+        $this->load->view('listar_estagio', $dados);
     }
 
 }

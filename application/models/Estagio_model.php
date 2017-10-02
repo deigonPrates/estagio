@@ -16,4 +16,8 @@ class Estagio_model extends CI_Model{
         $this->db->insert('estagio', $dados);
     }
     
+    public function buscaCompleta() {
+        return $this->db->get('estagio')->result_array();
+    }
+    
 }
