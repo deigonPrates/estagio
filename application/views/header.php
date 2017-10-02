@@ -79,12 +79,14 @@ if (!defined('BASEPATH'))
                         <li><a href="#dashvariants" aria-expanded="false" data-toggle="collapse"> <i class="icon-padnote"></i>Estagio</a>
                             <ul id="dashvariants" class="collapse list-unstyled">
                                 <li><?php echo anchor('cadastrar/estagio', "Cadastar"); ?></li>
+                                <li><?php echo anchor('editar/estagio', "Editar"); ?></li>
                                 <li><?php echo anchor('listar/estagio', "Listar"); ?></li>
                             </ul>
                         </li>
                         <li><a href="#fdfdfd" aria-expanded="false" data-toggle="collapse"> <i class="icon-user"></i>Usuario</a>
                             <ul id="fdfdfd" class="collapse list-unstyled">
                                 <li><?php echo anchor('cadastrar/usuario', "Cadastrar"); ?></li>
+                                <li><?php echo anchor('Editar/usuario', "Editar"); ?></li>
                                 <li><?php echo anchor('listar/usuario', "Listar"); ?></li>
                             </ul>
                         </li>   
