@@ -76,7 +76,7 @@ class Editar extends CI_Controller {
                 $mensagem = array('msg' => 'Nao foi possivel atualizar seus dados tente novamente.');
                 $this->load->view('editar_perfil', $mensagem);
             } else {
-                $mensagem = array('success' => 'Dados atualizados');
+                $mensagem = array('success' => 'Dados atualizados, deslogue e logue novamente para carregar-lo');
                 $this->load->view('editar_perfil', $mensagem);
             }
         }
