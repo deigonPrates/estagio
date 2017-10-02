@@ -1,5 +1,5 @@
 <?php
-$title = 'Cadastrar novo estagio';
+$title = 'Editar estagio';
 
 require_once(APPPATH . '/views/header.php');
 ?>
@@ -47,7 +47,7 @@ require_once(APPPATH . '/views/header.php');
                             endif;
                             ?>
                             <div class = "line"></div>
-                            <?php echo form_open("/cadastrar/estagio/");
+                            <?php echo form_open("editar/salvarEstagio");
                             ?>
                             <div class="row">
                                 <label class="col-sm-2 form-control-label">Dados do aluno</label>
