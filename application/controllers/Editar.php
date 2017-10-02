@@ -91,9 +91,15 @@ class Editar extends CI_Controller {
     public function estagioCheck($id) {
         $this->load->helper('form');
         $this->load->model('estagio_model');
-        $dados = array('estagio' => $this->estagio_model->buscaEspecifica($id));
+        $this->load->model('empresa_model');
+        $empresa = $this->empresa_model->buscaEspecifica($this->estagio_model->buscaEspecifica($id)[0]['idempresa']);
+       
+        $dados = array('estagio' => $this->estagio_model->buscaEspecifica($id),
+            'empresa' => $empresa);
+
         $this->load->view('editar_estagio', $dados);
     }
+
     public function salvarEstagio() {
         
     }
