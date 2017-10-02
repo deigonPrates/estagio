@@ -79,11 +79,14 @@ class Cadastrar extends CI_Controller {
                 );
 
                 $this->load->model('estagio_model');
-                $idempresa = $this->estagio_model->cadastrar($dados);
+                $this->estagio_model->cadastrar($dados);
+
+                $mensagem = array('success' => 'Dados cadastrados');
+                $this->load->view('cadastrar_estagio', $mensagem);
             }
         }
-        $mensagem = array('success' => 'Dados atualizados, deslogue e logue novamente para carregar-lo');
-        $this->load->view('cadastrar_estagio', $mensagem);
+
+        $this->load->view('cadastrar_estagio');
     }
 
     public function usuario() {
