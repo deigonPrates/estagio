@@ -11,6 +11,9 @@
  *
  * @author deigon
  */
-class Estagio_model {
-    //put your code here
+class Estagio_model extends CI_Model{
+     public function cadastrar($dados) {
+        $this->db->insert('estagio', $dados);
+    }
+    
 }
