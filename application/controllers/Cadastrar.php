@@ -43,15 +43,42 @@ class Cadastrar extends CI_Controller {
         if ($this->input->post("nome") != '') {
 
             if ($this->form_validation->run() == FALSE) {
+//			
 
                 $erros = validation_errors();
-                echo "<pre>";
-                print_r($erros);
-                echo "<pre>";
+                var_dump($erros);
                 exit();
             } else {
-                echo "Formulário enviado com sucesso.";
-                exit();
+                $empresa = array(
+                    'nome' => $this->input->post('nomeEmpresa', TRUE),
+                    'razaoSocial' => $this->input->post('razaoSocial', TRUE),
+                    'endereco' => $this->input->post('endereco', TRUE),
+                    'bairro' => $this->input->post('bairro', TRUE),
+                    'cidade' => $this->input->post('cidade', TRUE),
+                    'cep' => $this->input->post('cep', TRUE),
+                );
+                $this->load->model('empresa_model');
+                $idempresa = (int) $this->empresa_model->cadastrar($empresa)[0]['idempresa'];
+
+                $dados = array(
+                    'dataIncio' => $this->input->post('dataIncio', TRUE),
+                    'dataTermino' => $this->input->post('dataTermino', TRUE),
+                    'status' => 1,
+                    'nomeAluno' => $this->input->post("nome", TRUE),
+                    'matriculaAluno' => $this->input->post("matricula", TRUE),
+                    'semestreAluno' => $this->input->post("semestre", TRUE),
+                    'ano' => DATE('Y'),
+                    'cursoAluno' => $this->input->post("curso", TRUE),
+                    'cartaAceite' => $this->input->post("cartaAceite", TRUE),
+                    'formularioRequimento' => $this->input->post("formularioRequimento", TRUE),
+                    'termoCompromisso' => $this->input->post("termoCompromisso", TRUE),
+                    'comprovanteMatricula' => $this->input->post("comprovanteMatricula", TRUE),
+                    'idusuario' => (int) $this->session->userdata('logado')[0]['idusuario'],
+                    'idempresa' => $idempresa,
+                );
+
+                $this->load->model('estagio_model');
+                $idempresa = $this->estagio_model->cadastrar($dados);
             }
         }
 
@@ -79,7 +106,6 @@ class Cadastrar extends CI_Controller {
                 $erros = validation_errors();
                 $mensagem = array('msg' => $erros);
                 $this->load->view('cadastrar_usuario', $mensagem);
-                
             } else {
 
                 $criptografia = $this->criptografia->hashHX($this->input->post('senha'));
