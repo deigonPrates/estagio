@@ -48,7 +48,7 @@ if (!defined('BASEPATH'))
                         <div class="navbar-holder d-flex align-items-center justify-content-between">
                             <!-- Navbar Header-->
                             <div class="navbar-header">
-                                <!-- Navbar Brand --><a href="index.html" class="navbar-brand">
+                                <!-- Navbar Brand --><a href="#" class="navbar-brand">
                                     <div class="brand-text brand-big hidden-lg-down"><strong>I</strong><span>nternship</span></div>
                                     <div class="brand-text brand-small"><strong>Ship</strong></div></a>
                                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
@@ -86,7 +86,6 @@ if (!defined('BASEPATH'))
                         <li><a href="#fdfdfd" aria-expanded="false" data-toggle="collapse"> <i class="icon-user"></i>Usuario</a>
                             <ul id="fdfdfd" class="collapse list-unstyled">
                                 <li><?php echo anchor('cadastrar/usuario', "Cadastrar"); ?></li>
-                                <li><?php echo anchor('Editar/usuario', "Editar"); ?></li>
                                 <li><?php echo anchor('listar/usuario', "Listar"); ?></li>
                             </ul>
                         </li>   
