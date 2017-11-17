@@ -1,12 +1,12 @@
 <?php
-$title = 'Editar perfil';
+$title = 'Cadastrar novo usuario';
 
 require_once(APPPATH . '/views/header.php');
 ?>                <div class="content-inner">
     <ul class="breadcrumb">
         <div class="container-fluid">
             <li class="breadcrumb-item"><?php echo anchor('redireciona/pagina/inicio', 'Inicio'); ?></li>
-            <li class="breadcrumb-item active">Editar perfil</li>
+            <li class="breadcrumb-item active">Cadastrar usuario</li>
         </div>
     </ul>
     <!-- Forms Section-->
@@ -22,7 +22,7 @@ require_once(APPPATH . '/views/header.php');
                             </div>
                         </div>
                         <div class="card-header d-flex align-items-center">
-                            <h3 class="h4">Atualizando perfil do usuario</h3>
+                            <h3 class="h4">Informe todos os dados para efetuar o cadastro</h3>
                         </div>
                         <div class="card-body">
                             <?php
@@ -35,18 +35,9 @@ require_once(APPPATH . '/views/header.php');
 
                                 <?php
                             endif;
-                            if (isset($success)):
-                                ?>
-                                <div class="alert alert-success alert-dismissable">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    <strong>(:<br><br></strong> <?php echo $success; ?>
-                                </div>
-
-                                <?php
-                            endif;
                             ?>
                             <div class="line"></div>
-                            <?php echo form_open("editar/atualizar"); ?>
+                            <?php echo form_open("cadastrar/usuario"); ?>
                             <div class="row">
                                 <label class="col-sm-2 form-control-label">Dados do usuario</label>
                                 <div class="col-sm-9">
@@ -56,9 +47,8 @@ require_once(APPPATH . '/views/header.php');
                                             'name' => 'nome',
                                             'id' => 'nome',
                                             'class' => 'input-material',
-                                            'value' => $this->session->userdata('logado')[0]['nome']
                                         ));
-                                        echo form_label($this->session->userdata('logado')[0]['nome'], 'nome', array('class' => 'label-material'));
+                                        echo form_label('Nome', 'nome', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -67,9 +57,18 @@ require_once(APPPATH . '/views/header.php');
                                             'name' => 'username',
                                             'id' => 'username',
                                             'class' => 'input-material',
-                                            'value' => $this->session->userdata('logado')[0]['username']
                                         ));
-                                        echo form_label($this->session->userdata('logado')[0]['username'], 'username', array('class' => 'label-material'));
+                                        echo form_label('Username', 'username', array('class' => 'label-material'));
+                                        ?>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <?php
+                                        echo form_password(array(
+                                            'name' => 'senha',
+                                            'id' => 'senha',
+                                            'class' => 'input-material',
+                                        ));
+                                        echo form_label('Senha', 'senha', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -78,9 +77,8 @@ require_once(APPPATH . '/views/header.php');
                                             'name' => 'email',
                                             'id' => 'email',
                                             'class' => 'input-material',
-                                            'value' => $this->session->userdata('logado')[0]['email']
                                         ));
-                                        echo form_label($this->session->userdata('logado')[0]['email'], 'email', array('class' => 'label-material'));
+                                        echo form_label('E-mail', 'email', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                     <div class="form-group-material">
@@ -89,9 +87,8 @@ require_once(APPPATH . '/views/header.php');
                                             'name' => 'funcao',
                                             'id' => 'funcao',
                                             'class' => 'input-material',
-                                            'value' => $this->session->userdata('logado')[0]['funcao']
                                         ));
-                                        echo form_label($this->session->userdata('logado')[0]['funcao'], 'funcao', array('class' => 'label-material'));
+                                        echo form_label('Funcao', 'funcao', array('class' => 'label-material'));
                                         ?>
                                     </div>
                                 </div>
@@ -105,7 +102,7 @@ require_once(APPPATH . '/views/header.php');
                                     echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                                     echo form_button(array(
                                         "class" => "btn btn-primary",
-                                        "content" => "Atualizar",
+                                        "content" => "Cadastrar",
                                         "type" => "submit",
                                         'style' => 'width:33%',
                                     ));

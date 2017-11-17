@@ -48,7 +48,7 @@ class Cadastrar extends CI_Controller {
 
                 $erros = validation_errors();
                 
-                $this->load->helper(    'typography');
+                $this->load->helper('typography');
                 $erros = auto_typography($erros);
                 $mensagem = array('msg' => $erros);
                 $this->load->view('cadastrar_estagio', $mensagem);
