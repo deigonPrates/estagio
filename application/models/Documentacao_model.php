@@ -12,5 +12,23 @@
  * @author deigon
  */
 class Documentacao_model {
-    //put your code here
+
+    public function cadastrar($dados) {
+        $this->db->insert('documentacao', $dados);
+        return $this->retornarID();
+    }
+
+    private function retornarID() {
+        $this->db->select("iddocumentacao");
+        $this->db->order_by("idempresa", "desc");
+        $this->db->limit(1);
+
+        return $this->db->get('documentacao')->result_array();
+    }
+
+    public function buscaEspecifica($id) {
+        $this->db->where('iddocumentacao', $id);
+        return $this->db->get('documentacao')->result_array();
+    }
+
 }
