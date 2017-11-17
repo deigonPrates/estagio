@@ -58,26 +58,37 @@ class Cadastrar extends CI_Controller {
                     'cidade' => $this->input->post('cidade', TRUE),
                     'cep' => $this->input->post('cep', TRUE),
                 );
+                
+                
+                echo '<pre>';
+                print_r($this->input->post());
+                exit();
+                
                 $this->load->model('empresa_model');
                 $idempresa = (int) $this->empresa_model->cadastrar($empresa)[0]['idempresa'];
+                
+                $documentacao = array(
+                    'cartaAceite' => $this->input->post('cartaAceite', TRUE),
+                    'formularioRequimento' => $this->input->post('formularioRequimento', TRUE),
+                    'termoCompromisso' => $this->input->post('termoCompromisso', TRUE),
+                    'comprovanteMatricula' => $this->input->post('comprovanteMatricula', TRUE)
+                );
+                
 
                 $dados = array(
                     'dataIncio' => $this->input->post('dataIncio', TRUE),
                     'dataTermino' => $this->input->post('dataTermino', TRUE),
                     'status' => 1,
                     'nomeAluno' => $this->input->post("nome", TRUE),
-                    'matriculaAluno' => $this->input->post("matricula", TRUE),
-                    'semestreAluno' => $this->input->post("semestre", TRUE),
+                    'semestre' => $this->input->post("semestre", TRUE),
                     'ano' => DATE('Y'),
-                    'cursoAluno' => $this->input->post("curso", TRUE),
-                    'cartaAceite' => $this->input->post("cartaAceite", TRUE),
-                    'formularioRequimento' => $this->input->post("formularioRequimento", TRUE),
-                    'termoCompromisso' => $this->input->post("termoCompromisso", TRUE),
-                    'comprovanteMatricula' => $this->input->post("comprovanteMatricula", TRUE),
                     'idusuario' => (int) $this->session->userdata('logado')[0]['idusuario'],
                     'idempresa' => $idempresa,
                 );
+                echo '<pre>';
+                print_r($dados);
 
+                exit();
                 $this->load->model('estagio_model');
                 $this->estagio_model->cadastrar($dados);
 
